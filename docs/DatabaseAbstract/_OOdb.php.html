@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+   <html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Docs for page OOdb.php</title>
+  <link rel="stylesheet" href="../media/stylesheet.css" />
+  <script src="../media/lib/classTree.js"></script>
+<link id="webfx-tab-style-sheet" type="text/css" rel="stylesheet" href="../media/lib/tab.webfx.css" />
+<script type="text/javascript" src="../media/lib/tabpane.js"></script>
+  <script language="javascript" type="text/javascript" src="../media/lib/ua.js"></script>
+<script language="javascript" type="text/javascript">
+	var imgPlus = new Image();
+	var imgMinus = new Image();
+	imgPlus.src = "../media/images/plus.gif";
+	imgMinus.src = "../media/images/minus.gif";
+	
+	function showNode(Node){
+        switch(navigator.family){
+        	case 'nn4':
+        		// Nav 4.x code fork...
+				var oTable = document.layers["span" + Node];
+				var oImg = document.layers["img" + Node];
+        		break;
+        	case 'ie4':
+        		// IE 4/5 code fork...
+				var oTable = document.all["span" + Node];
+				var oImg = document.all["img" + Node];
+        		break;
+        	case 'gecko':
+        		// Standards Compliant code fork...
+				var oTable = document.getElementById("span" + Node);
+				var oImg = document.getElementById("img" + Node);
+        		break;
+        }
+		oImg.src = imgMinus.src;
+		oTable.style.display = "block";
+	}
+	
+	function hideNode(Node){
+        switch(navigator.family){
+        	case 'nn4':
+        		// Nav 4.x code fork...
+				var oTable = document.layers["span" + Node];
+				var oImg = document.layers["img" + Node];
+        		break;
+        	case 'ie4':
+        		// IE 4/5 code fork...
+				var oTable = document.all["span" + Node];
+				var oImg = document.all["img" + Node];
+        		break;
+        	case 'gecko':
+        		// Standards Compliant code fork...
+				var oTable = document.getElementById("span" + Node);
+				var oImg = document.getElementById("img" + Node);
+        		break;
+        }
+		oImg.src = imgPlus.src;
+		oTable.style.display = "none";
+	}
+	
+	function nodeIsVisible(Node){
+        switch(navigator.family){
+        	case 'nn4':
+        		// Nav 4.x code fork...
+				var oTable = document.layers["span" + Node];
+        		break;
+        	case 'ie4':
+        		// IE 4/5 code fork...
+				var oTable = document.all["span" + Node];
+        		break;
+        	case 'gecko':
+        		// Standards Compliant code fork...
+				var oTable = document.getElementById("span" + Node);
+        		break;
+        }
+		return (oTable && oTable.style.display == "block");
+	}
+	
+	function toggleNodeVisibility(Node){
+		if (nodeIsVisible(Node)){
+			hideNode(Node);
+		}else{
+			showNode(Node);
+		}
+	}
+</script>
+<!-- template designed by Julien Damon based on PHPEdit's generated templates, and tweaked by Greg Beaver -->
+<body bgcolor="#ffffff" ><h2>File: /OOdb.php</h2>
+<div class="tab-pane" id="tabPane1">
+<script type="text/javascript">
+tp1 = new WebFXTabPane( document.getElementById( "tabPane1" ) );
+</script>
+
+<div class="tab-page" id="Description">
+<h2 class="tab">Description</h2>
+<!-- ========== Info from phpDoc block ========= -->
+<h5>An Object Oriented Database Interface for PHP (PhpOOdb).</h5>
+<div class="desc"><p>This is a package to make coding complex, database driven applications in PHP a whole lot  easier. Please note that this package requires PHP 5.1.0 or greater to operate. To be honest,  you probably won't be using classes and objects much in PHP pre-5.0 anyway since so many  features were lacking. If you really desperately need to have a PHP 4.x version of this, then  please contact me at <strong>justin dot demaris at gmail dot com</strong> and I will see what I can do  to port this down for you.</p><p>Vocabulary:</p><p>Local vs Remote - A lot of the documentation is written from the perspective of a class that  is extending the dbObject and using the different features. For example, if we are implementing  the Calendar class, then the Calendar class is considered the &quot;Local&quot; class. When we have  complex relationships, the Calendar class may be related to other classes, for example, a Category.  In that case, from the perspective of the class we are implementing, the Category class is the  &quot;remote&quot; class.</p></div>
+<ul>
+		<li><strong>author:</strong> - Justin DeMaris &lt;<a href="mailto:justin.demaris@gmail.com">justin.demaris@gmail.com</a>&gt;</li>
+		<li><strong>version:</strong> - 0.5.0-beta</li>
+		<li><strong>todo:</strong> - Add support for many-to-many-to-many and beyond relationships</li>
+		<li><strong>todo:</strong> - Look into allowing single objects to be bound to multiple tables...</li>
+		<li><strong>todo:</strong> - Add a flag to allow bulk changes to objects so that changing properties doesn't immediately update the db</li>
+		<li><strong>filesource:</strong> - <a href="../__filesource/fsource_DatabaseAbstract__OOdb.php.html">Source Code for this file</a></li>
+	</ul>
+<!-- =========== Used Classes =========== -->
+<A NAME='classes_summary'><!-- --></A>
+<h3>Classes defined in this file</h3>
+
+<TABLE CELLPADDING='3' CELLSPACING='0' WIDTH='100%' CLASS="border">
+	<THEAD>
+		<TR><TD STYLE="width:20%"><h4>CLASS NAME</h4></TD><TD STYLE="width: 80%"><h4>DESCRIPTION</h4></TD></TR>
+	</THEAD>
+	<TBODY>
+				<TR BGCOLOR='white' CLASS='TableRowColor'>
+			<TD><a href="../DatabaseAbstract/dbAdapter.html">dbAdapter</a></TD>
+			<TD>Generic template for handling connections to different types of databases.</TD>
+		</TR>
+				<TR BGCOLOR='white' CLASS='TableRowColor'>
+			<TD><a href="../DatabaseAbstract/dbDatabase.html">dbDatabase</a></TD>
+			<TD>The Database class is a level of abstraction and buffering between the DBMS and the application.</TD>
+		</TR>
+				<TR BGCOLOR='white' CLASS='TableRowColor'>
+			<TD><a href="../DatabaseAbstract/dbList.html">dbList</a></TD>
+			<TD>A wrapper to contain properties and information about ONE-TO-MANY or MANY-TO-MANY relationships  between objects.</TD>
+		</TR>
+				<TR BGCOLOR='white' CLASS='TableRowColor'>
+			<TD><a href="../DatabaseAbstract/dbObject.html">dbObject</a></TD>
+			<TD>The dbObject class is a class that allows us to bind PHP objects to a database.</TD>
+		</TR>
+				<TR BGCOLOR='white' CLASS='TableRowColor'>
+			<TD><a href="../DatabaseAbstract/dbObjProperty.html">dbObjProperty</a></TD>
+			<TD>A wrapper for linking objects in &quot;single&quot; relationships.</TD>
+		</TR>
+			</TBODY>
+</TABLE>
+</div>
+<script type="text/javascript">tp1.addTabPage( document.getElementById( "Description" ) );</script>
+<div class="tab-page" id="tabPage1">
+<!-- ============ Includes DETAIL =========== -->
+
+<h2 class="tab">Include/Require Statements</h2>
+<script type="text/javascript">tp1.addTabPage( document.getElementById( "tabPage1" ) );</script>
+
+
+</div>
+<div class="tab-page" id="tabPage2">
+<!-- ============ GLOBAL DETAIL =========== -->
+
+<h2 class="tab">Global Variables</h2>
+
+<script type="text/javascript">tp1.addTabPage( document.getElementById( "tabPage2" ) );</script>
+
+</div>
+<div class="tab-page" id="tabPage3">
+<!-- ============ CONSTANT DETAIL =========== -->
+
+<A NAME='constant_detail'></A>
+<h2 class="tab">Constants</h2>
+
+<script type="text/javascript">tp1.addTabPage( document.getElementById( "tabPage3" ) );</script>
+
+</div>
+<div class="tab-page" id="tabPage4">
+<!-- ============ FUNCTION DETAIL =========== -->
+
+<h2 class="tab">Functions</h2>
+
+<script type="text/javascript">tp1.addTabPage( document.getElementById( "tabPage4" ) );</script>
+
+</div>
+</div>
+<script type="text/javascript">
+//<![CDATA[
+
+setupAllTabs();
+
+//]]>
+</script>
+	<div id="credit">
+		<hr />
+		Documentation generated on Tue, 07 Aug 2007 23:44:30 -0400 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.3.2</a>
+	</div>
+</body>
+</html>

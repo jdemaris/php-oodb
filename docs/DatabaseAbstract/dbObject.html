@@ -1,0 +1,817 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class dbObject</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class dbObject</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+													<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+						|											<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">The dbObject class is a class that allows us to bind PHP objects to a database.</p>
+<p class="description"><p>This class is an abstract class that must be extended to be useful. It provides  all of the expanded functionality required for changes to the object itself to  be reflected immediately in the database.</p><p>This class design supports pretty much any type of relational database schema, or  at least any schema that I have ever used. If you find one that it does not support,  then please let me know and I will do my humble best to fix that. The documentations  are written assuming that the unique identifier is a number, but this should honestly  support any type of value that can be represented as a string or used as the key  of an associative array.</p><p>VERY IMPORTANT NOTE - Because of the way PHP handles the concept of &quot;static&quot;, you need  to implement a static function in each class that extends dbObject  named _dbInfo().  An example object that extends dbObject would look like this:  <div class="src-code"><ol><li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">class&nbsp;</span><span class="src-id">Calendar&nbsp;</span><span class="src-key">extends&nbsp;</span><a href="../DatabaseAbstract/dbObject.html">dbObject</a>&nbsp;<span class="src-sym">{</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">public&nbsp;</span><span class="src-key">static&nbsp;</span><span class="src-key">function&nbsp;</span><span class="src-id">_dbInfo</span><span class="src-sym">(</span><span class="src-sym">)&nbsp;</span><span class="src-sym">{&nbsp;</span><span class="src-key">return&nbsp;</span><span class="src-key">array</span><span class="src-sym">(</span><span class="src-str">&quot;table&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">'calendar'</span><span class="src-sym">,&nbsp;</span><span class="src-str">&quot;key&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">'calendar_id'</span><span class="src-sym">)</span><span class="src-sym">;&nbsp;</span><span class="src-sym">}</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">public&nbsp;</span><span class="src-key">function&nbsp;</span><span class="src-id">__construct</span><span class="src-sym">(</span><span class="src-var">$db</span><span class="src-sym">,&nbsp;</span><span class="src-var">$values</span><span class="src-sym">)&nbsp;</span><span class="src-sym">{</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$this</span><span class="src-sym">-&gt;</span><span class="src-var">_types&nbsp;</span>=&nbsp;<span class="src-key">array</span><span class="src-sym">(</span><span class="src-str">&quot;calendar_id&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;int&quot;</span><span class="src-sym">,&nbsp;</span><span class="src-str">&quot;title&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;text&quot;</span><span class="src-sym">,&nbsp;</span><span class="src-str">&quot;category_id&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;int&quot;</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$this</span><span class="src-sym">-&gt;</span><span class="src-var">_singles</span><span class="src-sym">[</span><span class="src-sym">]&nbsp;</span>=&nbsp;<span class="src-key">array</span><span class="src-sym">(</span><span class="src-str">'category'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'category_id'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'Calendar'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'calendar_id'</span><span class="src-sym">,&nbsp;</span><span class="src-id">true</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">}</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-sym">}</span></div></li>
+</ol></div>  The _dbInfo function only needs to be altered by changing the values of the table and key fields  in the array.</p></p>
+	<ul class="tags">
+				<li><span class="field">abstract:</span> </li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_OOdb-0.6.0.php.html">/OOdb-0.6.0.php</a> (line <span class="field"><a href="../__filesource/fsource_DatabaseAbstract__OOdb-0.6.0.php.html#a840">840</a></span>)
+		</p>
+		
+				
+		<pre></pre>
+	
+			</div>
+</div>
+
+
+
+	<a name="sec-var-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variable Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+						<span class="disabled">Vars</span> (<a href="#sec-vars">details</a>)
+							| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+								</div>
+		<div class="info-box-body">
+			<div class="var-summary">
+																				<div class="var-title">
+					static <span class="var-type">mixed</span>
+					<a href="#$_key" title="details" class="var-name">$_key</a>
+				</div>
+																																																<div class="var-title">
+					static <span class="var-type">mixed</span>
+					<a href="#$_table" title="details" class="var-name">$_table</a>
+				</div>
+																																				<div class="var-title">
+					<span class="var-type">mixed</span>
+					<a href="#$_db" title="details" class="var-name">$_db</a>
+				</div>
+																								<div class="var-title">
+					<span class="var-type">mixed</span>
+					<a href="#$_mass_update" title="details" class="var-name">$_mass_update</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">mixed</span>
+					<a href="#$_multis" title="details" class="var-name">$_multis</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">mixed</span>
+					<a href="#$_relations" title="details" class="var-name">$_relations</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">mixed</span>
+					<a href="#$_singles" title="details" class="var-name">$_singles</a>
+				</div>
+																								<div class="var-title">
+					<span class="var-type">mixed</span>
+					<a href="#$_types" title="details" class="var-name">$_types</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">mixed</span>
+					<a href="#$_values" title="details" class="var-name">$_values</a>
+				</div>
+											</div>
+		</div>
+	</div>
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																		<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+				 
+				|
+						<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+																																																																																																														
+				<div class="method-definition">
+											<span class="method-result">dbObject</span>
+										<a href="#__construct" title="details" class="method-name">__construct</a>
+											(<span class="var-type"><a href="../DatabaseAbstract/dbDatabase.html">dbDatabase</a></span>&nbsp;<span class="var-name">$db</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$values</span> = <span class="var-default">array()</span>], <span class="var-type">string</span>&nbsp;<span class="var-name">$table</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$key_name</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$types</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#configure" title="details" class="method-name">configure</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getKey" title="details" class="method-name">getKey</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">integer</span>
+										<a href="#getKeyValue" title="details" class="method-name">getKeyValue</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getTable" title="details" class="method-name">getTable</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#_addMultiRelation" title="details" class="method-name">_addMultiRelation</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$local_key</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$remote_class</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$remote_key</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$assoc_table</span> = <span class="var-default">''</span>])
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#_addSingleRelation" title="details" class="method-name">_addSingleRelation</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$local_key</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$remote_class</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$remote_key</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$local_link</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#_delRelations" title="details" class="method-name">_delRelations</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#_getValues" title="details" class="method-name">_getValues</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">mixed</span>
+										<a href="#__get" title="details" class="method-name">__get</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#__set" title="details" class="method-name">__set</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#__toString" title="details" class="method-name">__toString</a>
+										()
+									</div>
+											</div>
+		</div>
+	</div>		
+
+	<a name="sec-vars"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variables</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Vars</a> (<span class="disabled">details</span>)
+						
+			
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<a name="var$_key" id="$_key"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			static <span class="var-type">mixed</span>
+			<span class="var-name">$_key</span>
+			 = <span class="var-default"> ''</span>			(line <span class="line-number"><a href="../__filesource/fsource_DatabaseAbstract__OOdb-0.6.0.php.html#a842">842</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$_table" id="$_table"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			static <span class="var-type">mixed</span>
+			<span class="var-name">$_table</span>
+			 = <span class="var-default"> ''</span>			(line <span class="line-number"><a href="../__filesource/fsource_DatabaseAbstract__OOdb-0.6.0.php.html#a843">843</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+
+<a name="var$_db" id="$_db"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">mixed</span>
+			<span class="var-name">$_db</span>
+			 = <span class="var-default"> NULL</span>			(line <span class="line-number"><a href="../__filesource/fsource_DatabaseAbstract__OOdb-0.6.0.php.html#a841">841</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$_mass_update" id="$_mass_update"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">mixed</span>
+			<span class="var-name">$_mass_update</span>
+			 = <span class="var-default"> false</span>			(line <span class="line-number"><a href="../__filesource/fsource_DatabaseAbstract__OOdb-0.6.0.php.html#a844">844</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$_multis" id="$_multis"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">mixed</span>
+			<span class="var-name">$_multis</span>
+			 = <span class="var-default">array()</span>			(line <span class="line-number"><a href="../__filesource/fsource_DatabaseAbstract__OOdb-0.6.0.php.html#a849">849</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$_relations" id="$_relations"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">mixed</span>
+			<span class="var-name">$_relations</span>
+			 = <span class="var-default">array()</span>			(line <span class="line-number"><a href="../__filesource/fsource_DatabaseAbstract__OOdb-0.6.0.php.html#a853">853</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> private</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$_singles" id="$_singles"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">mixed</span>
+			<span class="var-name">$_singles</span>
+			 = <span class="var-default">array()</span>			(line <span class="line-number"><a href="../__filesource/fsource_DatabaseAbstract__OOdb-0.6.0.php.html#a848">848</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$_types" id="$_types"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">mixed</span>
+			<span class="var-name">$_types</span>
+			 = <span class="var-default">array()</span>			(line <span class="line-number"><a href="../__filesource/fsource_DatabaseAbstract__OOdb-0.6.0.php.html#a847">847</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$_values" id="$_values"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">mixed</span>
+			<span class="var-name">$_values</span>
+			 = <span class="var-default">array()</span>			(line <span class="line-number"><a href="../__filesource/fsource_DatabaseAbstract__OOdb-0.6.0.php.html#a852">852</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> private</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+						
+		</div>
+	</div>
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+																	<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="method__construct" id="__construct"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number"><a href="../__filesource/fsource_DatabaseAbstract__OOdb-0.6.0.php.html#a867">867</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Constructor to set up database connection info and type enforcement.</p>
+<p class="description"><p>Handles all of the set up stuff itself. You should never need to touch this except perhaps to call  it from a lower constructor. The stuff you need to change will be in the configure() method.</p></p>
+	<ul class="tags">
+				<li><span class="field">todo:</span> Make this enforce data types</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">dbObject</span>
+		<span class="method-name">
+			__construct
+		</span>
+					(<span class="var-type"><a href="../DatabaseAbstract/dbDatabase.html">dbDatabase</a></span>&nbsp;<span class="var-name">$db</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$values</span> = <span class="var-default">array()</span>], <span class="var-type">string</span>&nbsp;<span class="var-name">$table</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$key_name</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$types</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../DatabaseAbstract/dbDatabase.html">dbDatabase</a></span>
+				<span class="var-name">$db</span><span class="var-description">: Reference to the database object that handles all database communications.</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$table</span><span class="var-description">: Name of the table that this object is bound to.</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$key_name</span><span class="var-description">: The field that is used as the unique identifier for this object.</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$types</span><span class="var-description">: An associative array of the valid fields and their data types.</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$values</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodconfigure" id="configure"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">configure</span> (line <span class="line-number"><a href="../__filesource/fsource_DatabaseAbstract__OOdb-0.6.0.php.html#a902">902</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Used to describe the object that extends dbObject. Sets up the fields and types of data as well</p>
+<p class="description"><p>as relationships. For example, a campus that has a list of events associated with it would be  defined like this:  <div class="src-code"><ol><li><div class="src-line">&nbsp;<span class="src-key">public&nbsp;</span><span class="src-key">function&nbsp;</span><a href="../DatabaseAbstract/dbObject.html#methodconfigure">configure</a><span class="src-sym">(</span><span class="src-sym">)&nbsp;</span><span class="src-sym">{</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$this</span><span class="src-sym">-&gt;</span><span class="src-id"><a href="../DatabaseAbstract/dbObject.html#var$_types">_types</a>&nbsp;</span>=&nbsp;<span class="src-key">array</span><span class="src-sym">(</span><span class="src-str">&quot;campus_id&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;int&quot;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-str">&quot;title&quot;&nbsp;</span>=&gt;&nbsp;<span class="src-str">&quot;text&quot;</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$this</span><span class="src-sym">-&gt;</span><span class="src-id"><a href="../DatabaseAbstract/dbObject.html#var$_multis">_multis</a></span><span class="src-sym">[</span><span class="src-sym">]&nbsp;</span>=&nbsp;<span class="src-key">array</span><span class="src-sym">(</span><span class="src-str">'events'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'campus_id'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'Event'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'event_id'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'wdlc_CampusAssign'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-sym">}</span></div></li>
+</ol></div></p></p>
+	<ul class="tags">
+				<li><span class="field">abstract:</span> </li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			configure
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetKey" id="getKey"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getKey</span> (line <span class="line-number"><a href="../__filesource/fsource_DatabaseAbstract__OOdb-0.6.0.php.html#a1185">1185</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Get the name of the field used to identify this type of object uniquely.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> The name of the unique field.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getKey
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetKeyValue" id="getKeyValue"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getKeyValue</span> (line <span class="line-number"><a href="../__filesource/fsource_DatabaseAbstract__OOdb-0.6.0.php.html#a1175">1175</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Get the value associated with the unioue identifier for this object</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> The identifying value of this object</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">integer</span>
+		<span class="method-name">
+			getKeyValue
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetTable" id="getTable"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getTable</span> (line <span class="line-number"><a href="../__filesource/fsource_DatabaseAbstract__OOdb-0.6.0.php.html#a1195">1195</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Get the name of the table that this object is linked with in the database.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> Name of the table object is linked to</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getTable
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="method_addMultiRelation" id="_addMultiRelation"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">_addMultiRelation</span> (line <span class="line-number"><a href="../__filesource/fsource_DatabaseAbstract__OOdb-0.6.0.php.html#a1044">1044</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Call this function to set up a &quot;multi&quot; relationship (either a ONE-TO-MANY or a MANY-TO-MANY).</p>
+<p class="description"><p>A MANY-TO-MANY (MTM) relationships when implemented in a database requires a third table to hold the  relationship information. For example, the following database schema describes an MTM relationship between  Calendars and Categories:  <pre>        Calendars               CategoryAssign             Categories
+       ---------------         -----------------          -----------------
+       | calendar_id |  ---->  | calendar_id   |          | category_id   |
+       | cal_name    |         | category_id   |   <----- | category_name |
+       ---------------         | is_shown      |          -----------------
+                               -----------------</pre>  In this schema, a Calendar can be assigned to multiple Categories and a Category can have multiple calendars  assigned to it. If we want to see which calendars are assigned to a specific category, we have to look at the  assignment table. In our code, we would have a Calendar object and a Category object. From the Calendar object  we would access the list of Categories by calling something like this:  <div class="src-code"><ol><li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$categories&nbsp;</span>=&nbsp;<span class="src-var">$CalA</span><span class="src-sym">-&gt;</span><span class="src-id">categories</span><span class="src-sym">-&gt;</span><span class="src-id">getAll</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-comm">//&nbsp;print&nbsp;list&nbsp;of&nbsp;category&nbsp;names&nbsp;and&nbsp;whether&nbsp;they&nbsp;are&nbsp;going&nbsp;to&nbsp;be&nbsp;shown</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">foreach&nbsp;</span><span class="src-sym">(&nbsp;</span><span class="src-var">$categories&nbsp;</span><span class="src-key">as&nbsp;</span><span class="src-var">$category&nbsp;</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;<span class="src-var">$category</span><span class="src-sym">[</span><span class="src-str">'object'</span><span class="src-sym">]</span><span class="src-sym">-&gt;</span><span class="src-id">category_name&nbsp;</span>.&nbsp;<span class="src-str">&quot;&nbsp;-&nbsp;&quot;&nbsp;</span>.&nbsp;<span class="src-var">$category</span><span class="src-sym">[</span><span class="src-str">'is_shown'</span><span class="src-sym">]</span><span class="src-sym">;</span></div></li>
+</ol></div>  This would retreive a list of all of the categories along with the properties of the relationship. The objects  themselves would be inside the 'object' key of the associative array.</p><p>In order to set up this relationship, we would make the following call in the object configure method:  <div class="src-code"><ol><li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$this</span><span class="src-sym">-&gt;</span><span class="src-id"><a href="../DatabaseAbstract/dbObject.html#var$_multis">_multis</a></span><span class="src-sym">[</span><span class="src-sym">]&nbsp;</span>=&nbsp;<span class="src-key">array</span><span class="src-sym">(</span><span class="src-str">'categories'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'calendar_id'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'Category'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'category_id'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'CategoryAssign'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+</ol></div></p><p>The other relationship that this class can be used for is a ONE-TO-MANY. For example, in the following schema,  we have a ONE-TO-MANY (OTM) relationship between the Events and their Occurrences:  <pre>       Events                  Occurrences
+      ----------------        --------------
+      | event_id     |<-------| o_event_id |
+      | event_detail |        | a_date     |
+      ----------------        --------------</pre>  From the Event class we would be looking at a list of multiple Occurrences, and we would set up the relationship  like this:  <div class="src-code"><ol><li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$this</span><span class="src-sym">-&gt;</span><span class="src-id"><a href="../DatabaseAbstract/dbObject.html#var$_multis">_multis</a></span><span class="src-sym">[</span><span class="src-sym">]&nbsp;</span>=&nbsp;<span class="src-key">array</span><span class="src-sym">(</span><span class="src-str">'occurrences'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'event_id'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'Occurrence'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'o_event_id'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+</ol></div>  Note that the major difference between the initiation for the ONE-TO-MANY relationship and the MANY-TO-MANY is  that there is no associative table in the ONE-TO-MANY one. Beyond that, accessing the entries is exactly the  same. For example, to display a list of all of the occurrence dates associated with Event object eventA:  <div class="src-code"><ol><li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$occurrences&nbsp;</span>=&nbsp;<span class="src-var">$eventA</span><span class="src-sym">-&gt;</span><span class="src-id">occurrences</span><span class="src-sym">-&gt;</span><span class="src-id">getAll</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">foreach&nbsp;</span><span class="src-sym">(&nbsp;</span><span class="src-var">$occurrences&nbsp;</span><span class="src-key">as&nbsp;</span><span class="src-var">$occurrence&nbsp;</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;<span class="src-var">$occurrence</span><span class="src-sym">-&gt;</span><span class="src-id">a_date</span><span class="src-sym">;</span></div></li>
+</ol></div>  If you wanted to add another occurrence, for example $OccB, then you could call:  <div class="src-code"><ol><li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$eventA</span><span class="src-sym">-&gt;</span><span class="src-id">occurrences</span><span class="src-sym">-&gt;</span><span class="src-id">add</span><span class="src-sym">(</span><span class="src-var">$OccB</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+</ol></div></p><p>It is important to note that in this example, we are talking about how to implement the Event class. From  the perspective of the Occurrence class, this is a simple &quot;single&quot; relationship and will be implemented  as described in the _addSingleRelation documentation.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			_addMultiRelation
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$local_key</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$remote_class</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$remote_key</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$assoc_table</span> = <span class="var-default">''</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$name</span><span class="var-description">: Name of the relationship. The field name that we will access the relationship by.</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$local_key</span><span class="var-description">: Name of the field in this object that we will use relate to the other object.</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$remote_class</span><span class="var-description">: Name of the class that the remote (related to) object will be an instance of.</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$remote_key</span><span class="var-description">: Name of the field in the remote object that will equal the local key field.</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$assoc_table</span><span class="var-description">: Name of the table that contains the relationship information.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="method_addSingleRelation" id="_addSingleRelation"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">_addSingleRelation</span> (line <span class="line-number"><a href="../__filesource/fsource_DatabaseAbstract__OOdb-0.6.0.php.html#a965">965</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Call this function to add a &quot;single&quot; relationship, such as when an object is bound to one other object.</p>
+<p class="description"><p>For example, look at a database schema of this form:  <pre>       Events                  Occurrences
+      ----------------        --------------
+      | event_id     |<-------| o_event_id |
+      | event_detail |        | a_date     |
+      ----------------        --------------</pre>  where every occurrence belongs to a single event. Note that this is the same example as for the ONE-TO-MANY  example in the dbList documentation. In this instance we need to look at the relationship from the  perspective of the Occurence. As far as the Occurrence is concerned, there is only one Event that it has to  relate to. It is unaware that the event may be cheating on it with other occurrences. From the Occurrence  class we would have to call the following code to set up the relation:  <div class="src-code"><ol><li><div class="src-line">&nbsp;<span class="src-var">$this</span><span class="src-sym">-&gt;</span><span class="src-id"><a href="../DatabaseAbstract/dbObject.html#var$_singles">_singles</a></span><span class="src-sym">[</span><span class="src-sym">]&nbsp;</span>=&nbsp;<span class="src-key">array</span><span class="src-sym">(</span><span class="src-str">'event'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'o_event_id'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'Event'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'event_id'</span><span class="src-sym">,&nbsp;</span><span class="src-id">true</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+</ol></div>  The constructor will automatically pass those parameters to this function.</p><p>Then if we want to access the Event object that this occurrence belongs to, we can call it like this (assume  that $OccA is an instance of Occurrence that belongs to some event):  <div class="src-code"><ol><li><div class="src-line">&nbsp;echo&nbsp;<span class="src-var">$OccA</span><span class="src-sym">-&gt;</span><span class="src-id">event</span><span class="src-sym">;</span></div></li>
+</ol></div>  This will auto-magically load the Event object with the event_id field equal to the o_event_id field in the  Occurrence from the database and return it. It also keeps a reference in its local cache so that any other  time afterward that you access it, it can just return it immediately. At the same time, if you would like to  make the occurrence point to a different event, save $EventB, then you can call:  <div class="src-code"><ol><li><div class="src-line">&nbsp;<span class="src-var">$OccA</span><span class="src-sym">-&gt;</span><span class="src-id">event&nbsp;</span>=&nbsp;<span class="src-var">$EventB</span><span class="src-sym">;</span></div></li>
+</ol></div>  This will automatically update the o_event_id field of the Occurrence object as well as the associated database  row and the pointer in the Occurrence's local cache.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> True.</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			_addSingleRelation
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$local_key</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$remote_class</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$remote_key</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$local_link</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$name</span><span class="var-description">: Name of the relationship. The field name that we will access the relationship by.</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$local_key</span><span class="var-description">: Name of the field in this object that we will use relate to the other object.</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$remote_class</span><span class="var-description">: Name of the class that the remote (related to) object will be an instance of.</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$remote_key</span><span class="var-description">: Name of the field in the remote object that will equal the local key field.</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$local_link</span><span class="var-description">: Whether this relationship value is set in this object.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="method_delRelations" id="_delRelations"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">_delRelations</span> (line <span class="line-number"><a href="../__filesource/fsource_DatabaseAbstract__OOdb-0.6.0.php.html#a1147">1147</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Only to be called by the dbDatabase object. Used to clean up relationships when  we are deleting an object.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			_delRelations
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="method_getValues" id="_getValues"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">_getValues</span> (line <span class="line-number"><a href="../__filesource/fsource_DatabaseAbstract__OOdb-0.6.0.php.html#a1206">1206</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Gets the associative array of all of the values this object has. This is the basic  values only, not the objects it is linking to, etc. Used for database updates.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> Associative array of all values.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			_getValues
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="method__get" id="__get"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">__get</span> (line <span class="line-number"><a href="../__filesource/fsource_DatabaseAbstract__OOdb-0.6.0.php.html#a1061">1061</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Provides database wrapped access to the values of the object.</p>
+<p class="description"><p>This is a magic PHP function and it allows us to control all of the data going in and out of this object.  Whenever the user tries to access a property, for example to read &quot;$cal-&gt;calendar_id&quot;, this function will  be called. This allows us to make relationship properties appear as local properties as well as to cache  them so we can retrieve them on demand, or ignore them if we don't end up needing them.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> Value of the property accessed.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">mixed</span>
+		<span class="method-name">
+			__get
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$name</span><span class="var-description">: The name of the property we are trying to access</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="method__set" id="__set"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">__set</span> (line <span class="line-number"><a href="../__filesource/fsource_DatabaseAbstract__OOdb-0.6.0.php.html#a1115">1115</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Database wrapped access method to write values into this object.</p>
+<p class="description"><p>A PHP magic method that allows us to control any attempts to write data into our  object. For example, when we set the title of a Calendar object by calling:  <div class="src-code"><ol><li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-var">$cal</span><span class="src-sym">-&gt;</span><span class="src-id">title&nbsp;</span>=&nbsp;<span class="src-str">&quot;test&nbsp;title&quot;</span><span class="src-sym">;</span></div></li>
+</ol></div>  this method will be called with the first paramter being set to &quot;title&quot; for the name  of the property and the second paramter to &quot;test title&quot; for the value we are trying  to set it to. This works the same for when we assign objects, etc. This function is  usually not called directly.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			__set
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$name</span><span class="var-description">: Name of the property being set.</span>			</li>
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$value</span><span class="var-description">: The value being assigned to</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="method__toString" id="__toString"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">__toString</span> (line <span class="line-number"><a href="../__filesource/fsource_DatabaseAbstract__OOdb-0.6.0.php.html#a912">912</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Generates a string representation of this object.</p>
+<p class="description"><p>Mostly useful for debugging, this is basically giving an array printout of the row from  the database that represents this object. Does not include related objects.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> A string representation of this object.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			__toString
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+						
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Fri, 31 Aug 2007 13:03:44 -0400 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.3.2</a>
+	</p>
+	</div></body>
+</html>

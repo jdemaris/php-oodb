@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs for page OOdb-0.6.0.php</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="file-name">/OOdb-0.6.0.php</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+							<a href="#sec-classes">Classes</a>
+														</div>
+	<div class="info-box-body">	
+		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">An Object Oriented Database Interface for PHP (PhpOOdb).</p>
+<p class="description"><p>This is a package to make coding complex, database driven applications in PHP a whole lot  easier. Please note that this package requires PHP 5.1.0 or greater to operate. To be honest,  you probably won't be using classes and objects much in PHP pre-5.0 anyway since so many  features were lacking. If you really desperately need to have a PHP 4.x version of this, then  please contact me at <strong>justin dot demaris at gmail dot com</strong> and I will see what I can do  to port this down for you.</p><p>Vocabulary:</p><p>Local vs Remote - A lot of the documentation is written from the perspective of a class that  is extending the dbObject and using the different features. For example, if we are implementing  the Calendar class, then the Calendar class is considered the &quot;Local&quot; class. When we have  complex relationships, the Calendar class may be related to other classes, for example, a Category.  In that case, from the perspective of the class we are implementing, the Category class is the  &quot;remote&quot; class.</p><p>CHANGES SINCE 0.5.1-beta:  --------------------------- <ul><li>Addition of the dbFactory class that can be used to create instances of classes that extend the</li></ul> dbObject. <ul><li>Addition of the wildcard load ability to the dbFactory class to load a set of objects based on</li></ul> a wild card. <ul><li>Updates only update the one column that was modified to reduce query size / overhead</li></ul></p></p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Justin DeMaris &lt;<a href="mailto:justin.demaris@gmail.com">justin.demaris@gmail.com</a>&gt;</li>
+				<li><span class="field">version:</span> 0.6.0</li>
+				<li><span class="field">todo:</span> Add a flag to allow bulk changes to objects so that changing properties doesn't immediately update the db</li>
+				<li><span class="field">todo:</span> Look into allowing single objects to be bound to multiple tables...</li>
+				<li><span class="field">filesource:</span> <a href="../__filesource/fsource_DatabaseAbstract__OOdb-0.6.0.php.html">Source Code for this file</a></li>
+			</ul>
+		
+			</div>
+</div>
+		
+	<a name="sec-classes"></a>	
+	<div class="info-box">
+		<div class="info-box-title">Classes</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+			<span class="disabled">Classes</span>
+																	</div>
+		<div class="info-box-body">	
+			<table cellpadding="2" cellspacing="0" class="class-table">
+				<tr>
+					<th class="class-table-header">Class</th>
+					<th class="class-table-header">Description</th>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						<a href="../DatabaseAbstract/dbAdapter.html">dbAdapter</a>
+					</td>
+					<td>
+											Generic template for handling connections to different types of databases.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						<a href="../DatabaseAbstract/dbDatabase.html">dbDatabase</a>
+					</td>
+					<td>
+											The Database class is a level of abstraction and buffering between the DBMS and the application.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						<a href="../DatabaseAbstract/dbList.html">dbList</a>
+					</td>
+					<td>
+											A wrapper to contain properties and information about ONE-TO-MANY or MANY-TO-MANY relationships  between objects.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						<a href="../DatabaseAbstract/dbObject.html">dbObject</a>
+					</td>
+					<td>
+											The dbObject class is a class that allows us to bind PHP objects to a database.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em; vertical-align: top">
+						<a href="../DatabaseAbstract/dbObjProperty.html">dbObjProperty</a>
+					</td>
+					<td>
+											A wrapper for linking objects in &quot;single&quot; relationships.
+										</td>
+				</tr>
+							</table>
+		</div>
+	</div>
+
+	
+	
+	
+	
+	<p class="notes" id="credit">
+		Documentation generated on Fri, 31 Aug 2007 13:03:41 -0400 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.3.2</a>
+	</p>
+	</div></body>
+</html>

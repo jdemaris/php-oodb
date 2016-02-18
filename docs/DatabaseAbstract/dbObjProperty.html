@@ -1,0 +1,551 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class dbObjProperty</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class dbObjProperty</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+													<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+						|											<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">A wrapper for linking objects in &quot;single&quot; relationships.</p>
+<p class="description"><p>This describes the relationship between two objects in a ONE-TO-ONE relationship. It is the  equivalent of the dbList class and is used in basically the same way.</p></p>
+		<p class="notes">
+			Located in <a class="field" href="_OOdb-0.6.0.php.html">/OOdb-0.6.0.php</a> (line <span class="field"><a href="../__filesource/fsource_DatabaseAbstract__OOdb-0.6.0.php.html#a1219">1219</a></span>)
+		</p>
+		
+				
+		<pre></pre>
+	
+			</div>
+</div>
+
+
+
+	<a name="sec-var-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variable Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+						<span class="disabled">Vars</span> (<a href="#sec-vars">details</a>)
+							| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+								</div>
+		<div class="info-box-body">
+			<div class="var-summary">
+																																																																								<div class="var-title">
+					<span class="var-type">mixed</span>
+					<a href="#$_is_set" title="details" class="var-name">$_is_set</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">mixed</span>
+					<a href="#$_linked_local" title="details" class="var-name">$_linked_local</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">mixed</span>
+					<a href="#$_local_key" title="details" class="var-name">$_local_key</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">mixed</span>
+					<a href="#$_local_obj" title="details" class="var-name">$_local_obj</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">mixed</span>
+					<a href="#$_remote_class" title="details" class="var-name">$_remote_class</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">mixed</span>
+					<a href="#$_remote_key" title="details" class="var-name">$_remote_key</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">mixed</span>
+					<a href="#$_remote_obj" title="details" class="var-name">$_remote_obj</a>
+				</div>
+											</div>
+		</div>
+	</div>
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																		<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+				 
+				|
+						<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+																																																																														
+				<div class="method-definition">
+											<span class="method-result">dbObjProperty</span>
+										<a href="#__construct" title="details" class="method-name">__construct</a>
+											(<span class="var-type"><a href="../DatabaseAbstract/dbObject.html">dbObject</a></span>&nbsp;<span class="var-name">$owner</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$local_key</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$remote_class</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$remote_key</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$local_link</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#clear" title="details" class="method-name">clear</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result"><a href="../DatabaseAbstract/dbObject.html">dbObject</a></span>
+										<a href="#get" title="details" class="method-name">get</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getClass" title="details" class="method-name">getClass</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getKey" title="details" class="method-name">getKey</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">integer</span>
+										<a href="#getKeyValue" title="details" class="method-name">getKeyValue</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#isInit" title="details" class="method-name">isInit</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#set" title="details" class="method-name">set</a>
+											(<span class="var-type"><a href="../DatabaseAbstract/dbObject.html">dbObject</a></span>&nbsp;<span class="var-name">$remote_obj</span>)
+									</div>
+											</div>
+		</div>
+	</div>		
+
+	<a name="sec-vars"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variables</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Vars</a> (<span class="disabled">details</span>)
+						
+			
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			
+<a name="var$_is_set" id="$_is_set"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">mixed</span>
+			<span class="var-name">$_is_set</span>
+			 = <span class="var-default"> false</span>			(line <span class="line-number"><a href="../__filesource/fsource_DatabaseAbstract__OOdb-0.6.0.php.html#a1227">1227</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> private</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$_linked_local" id="$_linked_local"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">mixed</span>
+			<span class="var-name">$_linked_local</span>
+			 = <span class="var-default"> false</span>			(line <span class="line-number"><a href="../__filesource/fsource_DatabaseAbstract__OOdb-0.6.0.php.html#a1225">1225</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$_local_key" id="$_local_key"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">mixed</span>
+			<span class="var-name">$_local_key</span>
+			 = <span class="var-default"> ''</span>			(line <span class="line-number"><a href="../__filesource/fsource_DatabaseAbstract__OOdb-0.6.0.php.html#a1224">1224</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$_local_obj" id="$_local_obj"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">mixed</span>
+			<span class="var-name">$_local_obj</span>
+			 = <span class="var-default"> NULL</span>			(line <span class="line-number"><a href="../__filesource/fsource_DatabaseAbstract__OOdb-0.6.0.php.html#a1221">1221</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$_remote_class" id="$_remote_class"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">mixed</span>
+			<span class="var-name">$_remote_class</span>
+			 = <span class="var-default"> ''</span>			(line <span class="line-number"><a href="../__filesource/fsource_DatabaseAbstract__OOdb-0.6.0.php.html#a1223">1223</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$_remote_key" id="$_remote_key"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">mixed</span>
+			<span class="var-name">$_remote_key</span>
+			 = <span class="var-default"> ''</span>			(line <span class="line-number"><a href="../__filesource/fsource_DatabaseAbstract__OOdb-0.6.0.php.html#a1222">1222</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$_remote_obj" id="$_remote_obj"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">mixed</span>
+			<span class="var-name">$_remote_obj</span>
+			 = <span class="var-default"> NULL</span>			(line <span class="line-number"><a href="../__filesource/fsource_DatabaseAbstract__OOdb-0.6.0.php.html#a1220">1220</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+						
+		</div>
+	</div>
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+																	<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="method__construct" id="__construct"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number"><a href="../__filesource/fsource_DatabaseAbstract__OOdb-0.6.0.php.html#a1238">1238</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets up the new ONE-TO-ONE relationship. Not used directly by the user.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">dbObjProperty</span>
+		<span class="method-name">
+			__construct
+		</span>
+					(<span class="var-type"><a href="../DatabaseAbstract/dbObject.html">dbObject</a></span>&nbsp;<span class="var-name">$owner</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$local_key</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$remote_class</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$remote_key</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$local_link</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../DatabaseAbstract/dbObject.html">dbObject</a></span>
+				<span class="var-name">$owner</span><span class="var-description">: Reference to the object that this is linking from</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$local_key</span><span class="var-description">: Name of the field in this object that we will use relate to the other object.</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$remote_class</span><span class="var-description">: Name of the class that the remote (related to) object will be an instance of.</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$remote_key</span><span class="var-description">: Name of the field in the remote object that will equal the local key field.</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$local_link</span><span class="var-description">: Whether this relationship value is set in this object.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodclear" id="clear"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">clear</span> (line <span class="line-number"><a href="../__filesource/fsource_DatabaseAbstract__OOdb-0.6.0.php.html#a1280">1280</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Unlink from an object. Used to reset the relationship.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			clear
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodget" id="get"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">get</span> (line <span class="line-number"><a href="../__filesource/fsource_DatabaseAbstract__OOdb-0.6.0.php.html#a1290">1290</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Retrieve the object being related to.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> Reference to the object we are pointing to in this relationship</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../DatabaseAbstract/dbObject.html">dbObject</a></span>
+		<span class="method-name">
+			get
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetClass" id="getClass"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getClass</span> (line <span class="line-number"><a href="../__filesource/fsource_DatabaseAbstract__OOdb-0.6.0.php.html#a1297">1297</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Gets the name of the class type this relationship points to.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> Name of the class type this relates to</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getClass
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetKey" id="getKey"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getKey</span> (line <span class="line-number"><a href="../__filesource/fsource_DatabaseAbstract__OOdb-0.6.0.php.html#a1304">1304</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Get the field name of the owner that we are using to make the link</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> Name of the field of the owner</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getKey
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetKeyValue" id="getKeyValue"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getKeyValue</span> (line <span class="line-number"><a href="../__filesource/fsource_DatabaseAbstract__OOdb-0.6.0.php.html#a1316">1316</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Get the value of the key field from the owner</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> Value of the key field.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">integer</span>
+		<span class="method-name">
+			getKeyValue
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodisInit" id="isInit"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">isInit</span> (line <span class="line-number"><a href="../__filesource/fsource_DatabaseAbstract__OOdb-0.6.0.php.html#a1273">1273</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Checks if we have retrieved the object being pointed to from the database yet. We only do that when  it is accessed.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> True if we have retrieved the object from the database, false otherwise.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			isInit
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodset" id="set"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">set</span> (line <span class="line-number"><a href="../__filesource/fsource_DatabaseAbstract__OOdb-0.6.0.php.html#a1252">1252</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets the object being pointed to.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			set
+		</span>
+					(<span class="var-type"><a href="../DatabaseAbstract/dbObject.html">dbObject</a></span>&nbsp;<span class="var-name">$remote_obj</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../DatabaseAbstract/dbObject.html">dbObject</a></span>
+				<span class="var-name">$remote_obj</span><span class="var-description">: Reference to the object this relationship should be pointing to.</span>			</li>
+				</ul>
+		
+			
+	</div>
+						
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Fri, 31 Aug 2007 13:03:45 -0400 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.3.2</a>
+	</p>
+	</div></body>
+</html>
